@@ -59,7 +59,7 @@ elif [ "$1" = "init" ]; then
 	if [ ! -d "/home/bcdigger/docker_mapping_file/mysql" ] ; then
 		echo "Creating mysql data dir ${HOME}/docker_mapping_file/mysql ..."
 		mkdir -p /home/bcdigger/docker_mapping_file/mysql/conf
-		cp ${basedir}/mysql/my.cnf /home/bcdigger/docker_mapping_file/mysql/conf/
+		cp ${basedir}/mysql/my.cnf /home/bcdigger/docker_mapping_file/mysql/conf/my.cnf
 		mkdir -p /home/bcdigger/docker_mapping_file/mysql/data
 	fi
 	#activeMQ
