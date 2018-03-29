@@ -10,7 +10,6 @@ services :
     ports :
       - "3306:3306"
     volumes :
-      - /root/docker_mapping_file/mysql/data:/mysql_data
-      - /root/docker_mapping_file/mysql/conf/my.cnf:/etc/mysql/my.cnf
-      - /root/docker_mapping_file/mysql/logs:/logs
+      - /home/bcdigger/docker_mapping_file/mysql/data:/mysql_data
+      - /home/bcdigger/docker_mapping_file/mysql/conf/my.cnf:/etc/mysql/my.cnf
     privileged : true

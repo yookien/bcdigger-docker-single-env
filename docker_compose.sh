@@ -55,19 +55,21 @@ elif [ "$1" = "init" ]; then
 	fi
 
 	# 准备数据文件夹
-	if [ ! -d "${HOME}/docker_mapping_file/mysql" ] ; then
-		# mysql数据文件夹
+	# mysql数据文件夹
+	if [ ! -d "/home/bcdigger/docker_mapping_file/mysql" ] ; then
 		echo "Creating mysql data dir ${HOME}/docker_mapping_file/mysql ..."
-		mkdir -p ${HOME}/docker_mapping_file/mysql/conf
-		cp ${basedir}/mysql/my.cnf ${HOME}/docker_mapping_file/mysql/conf/
-		mkdir -p ${HOME}/docker_mapping_file/mysql/data
-		mkdir -p ${HOME}/docker_mapping_file/mysql/innodb/data
-		mkdir -p ${HOME}/docker_mapping_file/mysql/innodb/log
-		mkdir -p ${HOME}/docker_mapping_file/mysql/tmp
-		mkdir -p ${HOME}/docker_mapping_file/mysql/relay-log
-		mkdir -p ${HOME}/docker_mapping_file/mysql/mysqllog
-		mkdir -p ${HOME}/docker_mapping_file/mysql/mysqllog/binlog
+		mkdir -p /home/bcdigger/docker_mapping_file/mysql/conf
+		cp ${basedir}/mysql/my.cnf /home/bcdigger/docker_mapping_file/mysql/conf/
+		mkdir -p /home/bcdigger/docker_mapping_file/mysql/data
 	fi
+	#activeMQ
+#	if [ -d "${basedir}/activemq" ] ; then
+		# mysql数据文件夹
+#		echo "Downloading activeMQ intall file ..."
+#		cd ${basedir}/activemq
+#		wget http://apache.fayea.com/activemq/5.15.3/apache-activemq-5.15.3-bin.tar.gz
+#		cd ..
+#	fi
 	
 #	if [ ! -d "${HOME}/docker-data/fdfs" ] ; then
 		# fastdfs数据文件夹
