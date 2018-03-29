@@ -6,7 +6,7 @@ cd ${basedir}
 
 # docker-compose要管理的环境
 compose(){
-	echo batch $1: mysql ...
+	echo batch $1: activemq ...
 	
 #	cd mysql
 #	docker-compose $1
