@@ -10,6 +10,7 @@ services :
     ports :
       - "3306:3306"
     volumes :
-      - /root/docker_mapping_file/mysql/data:/var/lib/mysql
+      - /root/docker_mapping_file/mysql/data:/mysql_data
       - /root/docker_mapping_file/mysql/conf:/etc/mysql/conf.d
+      - /root/docker_mapping_file/mysql/logs:/logs
     privileged : true
