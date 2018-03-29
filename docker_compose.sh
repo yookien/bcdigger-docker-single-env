@@ -58,9 +58,9 @@ elif [ "$1" = "init" ]; then
 	# mysql数据文件夹
 	if [ ! -d "/home/bcdigger/docker_mapping_file/mysql" ] ; then
 		echo "Creating mysql data dir ${HOME}/docker_mapping_file/mysql ..."
-		mkdir -p /home/bcdigger/docker_mapping_file/mysql/conf
-		cp ${basedir}/mysql/my.cnf /home/bcdigger/docker_mapping_file/mysql/conf/my.cnf
-		mkdir -p /home/bcdigger/docker_mapping_file/mysql/data
+		mkdir -p /home/bcdigger/docker_mapping_file/mysql/conf/
+		cp /home/bcdigger/bcdigger-docker-single-env/mysql/my.cnf /home/bcdigger/docker_mapping_file/mysql/conf/
+		mkdir -p /home/bcdigger/docker_mapping_file/mysql/data/
 	fi
 	#activeMQ
 #	if [ -d "${basedir}/activemq" ] ; then
