@@ -1,14 +1,16 @@
 version: '3.0'
 
 services:
-    activemq:
-        build: .
-        image: lee/activemq
-        # restart: always
-        container_name: activemq
-        ports:
-            - "8161:8161"
-            - "61616:61616"
+  activemq:
+    build: .
+      image: lee/activemq
+      # restart: always
+      container_name: activemq
+      ports:
+        - "8161:8161"
+        - "61616:61616"
+      volumes :
+        - /root/docker_mapping_file/activemq/data:/apache-activemq-5.15.3/data
 
 networks:
     default:

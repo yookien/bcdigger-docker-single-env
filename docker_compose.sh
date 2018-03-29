@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 basedir="$(cd `dirname $0`; pwd)"
 echo basedir:$basedir
@@ -8,13 +8,13 @@ cd ${basedir}
 compose(){
 	echo batch $1: mysql ...
 	
-	cd mysql
-	docker-compose $1
-	cd ..
-	
-#	cd activemq
+#	cd mysql
 #	docker-compose $1
 #	cd ..
+	
+	cd activemq
+	docker-compose $1
+	cd ..
 
 #	cd redis-single
 #	docker-compose $1
@@ -56,20 +56,29 @@ elif [ "$1" = "init" ]; then
 
 	# 准备数据文件夹
 	# mysql数据文件夹
-	if [ ! -d "/home/bcdigger/docker_mapping_file/mysql" ] ; then
-		echo "Creating mysql data dir ${HOME}/docker_mapping_file/mysql ..."
-		mkdir -p /home/bcdigger/docker_mapping_file/mysql/conf/
-		cp /home/bcdigger/bcdigger-docker-single-env/mysql/my.cnf /home/bcdigger/docker_mapping_file/mysql/conf/
-		mkdir -p /home/bcdigger/docker_mapping_file/mysql/data/
-	fi
-	#activeMQ
-#	if [ -d "${basedir}/activemq" ] ; then
-		# mysql数据文件夹
-#		echo "Downloading activeMQ intall file ..."
-#		cd ${basedir}/activemq
-#		wget http://apache.fayea.com/activemq/5.15.3/apache-activemq-5.15.3-bin.tar.gz
-#		cd ..
+#	if [ ! -d "${HOME}/docker_mapping_file/mysql" ] ; then
+#		echo "Creating mysql data dir ${HOME}/docker_mapping_file/mysql ..."
+#		mkdir -p ${HOME}/docker_mapping_file/mysql/conf
+#		cp ${basedir}/mysql/my.cnf ${HOME}/docker_mapping_file/mysql/conf/
+#		mkdir -p ${HOME}/docker_mapping_file/mysql/data
+#		mkdir -p ${HOME}/docker_mapping_file/mysql/data/innodb/data
+#		mkdir -p ${HOME}/docker_mapping_file/mysql/data/innodb/log
+#		mkdir -p ${HOME}/docker_mapping_file/mysql/data/tmp
+#		mkdir -p ${HOME}/docker_mapping_file/mysql/data/relay-log
+#		mkdir -p ${HOME}/docker_mapping_file/mysql/data/mysqllog
+#		mkdir -p ${HOME}/docker_mapping_file/mysql/data/mysqllog/binlog
 #	fi
+	#activeMQ
+	if [ -d "${basedir}/activemq" ] ; then
+		# mysql数据文件夹
+		echo "Downloading activeMQ intall file ..."
+		cd ${basedir}/activemq
+		wget http://apache.fayea.com/activemq/5.15.3/apache-activemq-5.15.3-bin.tar.gz
+		if [ ! -d "${HOME}/docker_mapping_file/activemq/data" ] ; then
+			mkdir -p ${HOME}/docker_mapping_file/activemq/data
+		fi
+		cd ..
+	fi
 	
 #	if [ ! -d "${HOME}/docker-data/fdfs" ] ; then
 		# fastdfs数据文件夹
