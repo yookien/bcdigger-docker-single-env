@@ -3,7 +3,7 @@ version: '3.0'
 services:
     fastdfs:
         build: .
-        image: youngcoding/fastdfs:5.11
+        image: yookien/fastdfs:5.11
         # 该容器是否需要开机启动+自动重启。若需要，则取消注释。
         # restart: always
         container_name: fastdfs
@@ -11,10 +11,10 @@ services:
             # nginx服务端口
             - WEB_PORT=8888
             # docker所在主机的IP地址
-            - IP=192.168.0.110
+            - IP=192.168.1.137
         volumes:
             # 将本地目录映射到docker容器内的fastdfs数据存储目录
-            - ${HOME}/docker-data/fdfs:/var/local/fdfs
+            - ${HOME}/docker_mapping_file/fdfs:/var/local/fdfs
         # 使docker具有root权限以读写主机上的目录
         privileged: true
         # 网络模式为host，即直接使用主机的网络接口
