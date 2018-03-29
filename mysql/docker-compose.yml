@@ -1,17 +1,14 @@
-version: '3.1'
+version : '3.1'
 
-services:
-
-    db:
-        image: mysql
-        restart: always
-        environment:
-            MYSQL_ROOT_PASSWORD: docker_db_123
-        ports:
-            - "3306:3306"
-
-    adminer:
-        image: adminer
-        # restart: always
-        ports:
-            - 3308:8080
+services :
+  db:
+    image : mysql
+    restart : always
+    environment :
+      MYSQL_ROOT_PASSWORD: docker_db_bcdigger
+    ports :
+      - "3306:3306"
+    volumes :
+      - /root/docker_mapping_file/mysql/data:/var/lib/mysql
+      - /root/docker_mapping_file/mysql/conf:/etc/mysql/conf.d
+    privileged : true
