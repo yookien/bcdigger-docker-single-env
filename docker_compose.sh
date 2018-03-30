@@ -74,18 +74,19 @@ elif [ "$1" = "init" ]; then
 		echo "Downloading activeMQ intall file ..."
 		cd ${basedir}/activemq
 		wget http://apache.fayea.com/activemq/5.15.3/apache-activemq-5.15.3-bin.tar.gz
+		docker build -t activemq:5.15.3 .
 		if [ ! -d "${HOME}/docker_mapping_file/activemq/data" ] ; then
 			mkdir -p ${HOME}/docker_mapping_file/activemq/data
 		fi
 		cd ..
 	fi
 	
-#	if [ ! -d "${HOME}/docker-data/fdfs" ] ; then
+	if [ ! -d "${HOME}/docker-data/fdfs" ] ; then
 		# fastdfs数据文件夹
-#		echo "Creating fastdfs data dir ${HOME}/docker-data/fdfs ..."
-#		mkdir -p ${HOME}/docker-data/fdfs
-#	fi
-#    if [ ! -d "${HOME}/docker-data/solr-home" ] ; then
+		echo "Creating fastdfs data dir ${HOME}/docker-data/fdfs ..."
+		mkdir -p ${HOME}/docker_mapping_file/fdfs
+	fi
+#    if [ ! -d "${HOME}/docker_mapping_file/solr-home" ] ; then
 		# solr数据文件夹
 #        echo "Copy solr-home to ${HOME}/docker-data/ ..."
 #        cp -r solr/solr-home ${HOME}/docker-data/
