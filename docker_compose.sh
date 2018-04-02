@@ -56,18 +56,18 @@ elif [ "$1" = "init" ]; then
 
 	# 准备数据文件夹
 	# mysql数据文件夹
-#	if [ ! -d "${HOME}/docker_mapping_file/mysql" ] ; then
-#		echo "Creating mysql data dir ${HOME}/docker_mapping_file/mysql ..."
+	if [ ! -d "${HOME}/docker_mapping_file/mysql" ] ; then
+		echo "Creating mysql data dir ${HOME}/docker_mapping_file/mysql ..."
 #		mkdir -p ${HOME}/docker_mapping_file/mysql/conf
 #		cp ${basedir}/mysql/my.cnf ${HOME}/docker_mapping_file/mysql/conf/
-#		mkdir -p ${HOME}/docker_mapping_file/mysql/data
+		mkdir -p ${HOME}/docker_mapping_file/mysql/data
 #		mkdir -p ${HOME}/docker_mapping_file/mysql/data/innodb/data
 #		mkdir -p ${HOME}/docker_mapping_file/mysql/data/innodb/log
 #		mkdir -p ${HOME}/docker_mapping_file/mysql/data/tmp
 #		mkdir -p ${HOME}/docker_mapping_file/mysql/data/relay-log
 #		mkdir -p ${HOME}/docker_mapping_file/mysql/data/mysqllog
 #		mkdir -p ${HOME}/docker_mapping_file/mysql/data/mysqllog/binlog
-#	fi
+	fi
 	#activeMQ
 	if [ -d "${basedir}/activemq" ] ; then
 		# mysql数据文件夹

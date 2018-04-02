@@ -1,5 +1,5 @@
 FROM redis:3.2
-MAINTAINER Bubble Shrimp <bingdianfeishui@gmail.com>
+MAINTAINER yookien <yookien@gmail.com>
 
 ENV HOME /home/redis-cluster
 
